@@ -1,6 +1,6 @@
 ## Run Challenge Project
 
-- **Pull project (develop branch)**
+- **Clone project (develop branch)**
 - **Go to project path**
 - **Run : composer Install**
 - **Run : npm install**
