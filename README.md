@@ -2,7 +2,7 @@
 
 - **Clone project (develop branch)**
 - **Go to project path**
-- **Run : composer Install**
+- **Run : composer install**
 - **Run : npm install**
 - **Run : cp .env.example .env** =>add your database info
 - **Run : php artisan key:generate** =>
