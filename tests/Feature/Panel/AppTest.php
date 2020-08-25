@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Panel;
 
+use App\Http\Middleware\VerifyCsrfToken;
 use App\User;
 use Tests\TestCase;
 
@@ -34,6 +35,7 @@ class AppTest extends TestCase
         $this->actingAs($user);
 
         // send request
+        $this->withoutMiddleware(VerifyCsrfToken::class);
         $response = $this->json('get', route('panel'));
 
         // check valid response
@@ -52,6 +54,7 @@ class AppTest extends TestCase
         $this->actingAs($user);
 
         // send request
+        $this->withoutMiddleware(VerifyCsrfToken::class);
         $response = $this->json('get', route('panel'));
 
         // check valid response
