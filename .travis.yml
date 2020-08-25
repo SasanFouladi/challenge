@@ -11,6 +11,11 @@ matrix:
 
 addons:
   mariadb: 10.4
+
+service:
+  - redis-server
+
+
 cache:
   directories:
     - node_modules
@@ -22,6 +27,7 @@ before_script:
   - composer install --no-interaction
   - php artisan migrate --no-interaction -vvv
   - phpenv config-rm xdebug.ini
+  - sudo redis-server /etc/redis/redis.conf --port 6379
   - echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 script:
   - vendor/bin/phpunit
