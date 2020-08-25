@@ -1,8 +1,14 @@
 # .travis.yml
 dist: precise
 language: php
-php:
-  - 7.2
+
+matrix:
+  include:
+    - php: 7.3
+      env: LARAVEL_VERSION=6.*
+    - php: 7.3
+      env: LARAVEL_VERSION=7.*
+
 addons:
   mariadb: 10.4
 cache:
