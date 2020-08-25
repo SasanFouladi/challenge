@@ -2,7 +2,6 @@
 
 namespace Tests\Feature\Panel;
 
-use App\Http\Middleware\VerifyCsrfToken;
 use App\User;
 use Tests\TestCase;
 
@@ -25,7 +24,6 @@ class AppTest extends TestCase
 
     /**
      * Only authenticate user can see panel admin.
-     * @test
      * @return void
      */
     public function only_authenticate_user_can_see_panel()
@@ -35,7 +33,6 @@ class AppTest extends TestCase
         $this->actingAs($user);
 
         // send request
-        $this->withoutMiddleware(VerifyCsrfToken::class);
         $response = $this->json('get', route('panel'));
 
         // check valid response
@@ -44,7 +41,6 @@ class AppTest extends TestCase
 
     /**
      * see panel admin successfully.
-     * @test
      * @return void
      */
     public function see_panel_successfully()
@@ -54,7 +50,6 @@ class AppTest extends TestCase
         $this->actingAs($user);
 
         // send request
-        $this->withoutMiddleware(VerifyCsrfToken::class);
         $response = $this->json('get', route('panel'));
 
         // check valid response
