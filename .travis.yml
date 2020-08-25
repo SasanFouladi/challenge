@@ -21,6 +21,7 @@ matrix:
 
 before_install:
   - composer self-update --stable -n
+  - mysql -e 'create database testing;'
 
 install:
   - travis_retry composer install --no-suggest
