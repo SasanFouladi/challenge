@@ -56,4 +56,6 @@ class AppTest extends TestCase
         $response->assertOk()
             ->assertSeeText($user->name);
     }
+
+
 }
