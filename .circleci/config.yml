@@ -32,3 +32,7 @@ after_script:
   - wget https://scrutinizer-ci.com/ocular.phar;
   - php ocular.phar code-coverage:upload --format=php-clover clover.xml;
   - bash <(curl -s https://codecov.io/bash)
+
+# Run the welcome/run job in its own container
+jobs:
+  - welcome/run
